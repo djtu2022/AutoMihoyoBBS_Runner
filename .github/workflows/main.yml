@@ -24,16 +24,18 @@ jobs:
     - name: 获取代码
       run: |
         git clone https://github.com/Womsxd/AutoMihoyoBBS --depth=1
-        cd AutoMihoyoBBS
 
     - name: 安装依赖
       run: |
+        cd AutoMihoyoBBS
         pip install -r requirements.txt
 
     - name: 配置参数
       run: |
+        cd AutoMihoyoBBS
         echo $config > config/config.json
         
     - name: 执行签到
       run: |
+        cd AutoMihoyoBBS
         python main.py
