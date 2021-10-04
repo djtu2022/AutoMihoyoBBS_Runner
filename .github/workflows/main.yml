@@ -1,7 +1,7 @@
 name: 米游社签到
 
 env:
-  config: ${{ secrets.CONFIG }}
+  config_url: ${{ secrets.CONFIG_URL }}
 
 on:
   push:
@@ -32,10 +32,19 @@ jobs:
 
     - name: 配置参数
       run: |
-        cd AutoMihoyoBBS
-        echo $config > config/config.json
+        cd AutoMihoyoBBS/config
+        wget $config_url
         
     - name: 执行签到
       run: |
         cd AutoMihoyoBBS
         python main.py
+        
+    - uses: actions/checkout@v2
+    - name: 保存参数
+      uses: exuanbo/actions-deploy-gist@v1
+      with:
+        token: ${{ secrets.TOKEN }}
+        gist_id: 9916df1d2cff0aff8ec1921131eeed68
+        gist_file_name: config.json
+        file_path: ./AutoMihoyoBBS/config/config.json
