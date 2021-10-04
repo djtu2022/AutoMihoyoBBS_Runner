@@ -17,6 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: 安装环境
       uses: actions/setup-python@v2
       with:
@@ -40,7 +41,6 @@ jobs:
         cd AutoMihoyoBBS
         python main.py
         
-    - uses: actions/checkout@v2
     - name: 保存参数
       uses: exuanbo/actions-deploy-gist@v1
       with:
