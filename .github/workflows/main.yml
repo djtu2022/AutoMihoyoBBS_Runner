@@ -45,6 +45,6 @@ jobs:
       uses: exuanbo/actions-deploy-gist@v1
       with:
         token: ${{ secrets.TOKEN }}
-        gist_id: 9916df1d2cff0aff8ec1921131eeed68
+        gist_id: 50a58624ffc29f93ae4957edc62e5e34
         gist_file_name: config.json
         file_path: ./AutoMihoyoBBS/config/config.json
